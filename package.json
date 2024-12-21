@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://imane-kassemi.github.io/e-plantShopping",
+  "homepage": "https://imane-kassemi.github.io/e-plantShopping",  // Assurez-vous d'ajouter cette ligne pour GitHub Pages
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite build; vite preview --host",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",  // Ce script prépare le build
+    "deploy": "gh-pages -d dist"  // Ce script déploie vers GitHub Pages
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
