@@ -1,25 +1,24 @@
-// src/ProductList.jsx
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem } from './CartSlice';  // Importation de l'action
+import { addItem } from './CartSlice'; // Importing the addItem action
 
-const ProductList = ({ products }) => {
+const ProductList = ({ plantsArray }) => {
   const dispatch = useDispatch();
 
-  const handleAddToCart = (product) => {
-    // Dispatchez l'action pour ajouter un article au panier
-    dispatch(addItem(product));
+  // Function to handle adding items to the cart
+  const handleAddToCart = (plant) => {
+    dispatch(addItem({ ...plant, quantity: 1 })); // Add the item with an initial quantity of 1
   };
 
   return (
     <div className="product-grid">
-      {products.map(product => (
-        <div key={product.name} className="product-card">
-          <img src={product.image} alt={product.name} />
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <p>${product.cost}</p>
-          <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+      {plantsArray.map((plant) => (
+        <div key={plant.name} className="product-card">
+          <img src={plant.image} alt={plant.name} />
+          <h3>{plant.name}</h3>
+          <p>{plant.description}</p>
+          <p>${plant.cost}</p>
+          <button onClick={() => handleAddToCart(plant)}>Add to Cart</button>
         </div>
       ))}
     </div>
